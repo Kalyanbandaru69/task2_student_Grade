@@ -1,0 +1,41 @@
+# Function to get grades from the user
+def get_grades():
+    grades = {}
+    num_subjects = int(input("Enter the number of subjects: "))
+    for _ in range(num_subjects):
+        subject = input("Enter the subject name: ")
+        grade = float(input(f"Enter the grade for {subject}: "))
+        grades[subject] = grade
+    return grades
+
+# Function to calculate the average of the grades
+def calculate_average(grades):
+    total = sum(grades.values())
+    return total / len(grades)
+
+# Function to determine the letter grade based on average
+def determine_letter_grade(average):
+    if average >= 90:
+        return 'A'
+    elif average >= 80:
+        return 'B'
+    elif average >= 70:
+        return 'C'
+    elif average >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+# Main function to run the program
+def main():
+    grades = get_grades()  # Get grades from user
+    average = calculate_average(grades)  # Calculate average
+    letter_grade = determine_letter_grade(average)  # Determine letter grade
+    
+    # Display results
+    print(f"Average Grade: {average:.2f}")
+    print(f"Letter Grade: {letter_grade}")
+
+# Entry point of the program
+if __name__ == "__main__":
+    main()
